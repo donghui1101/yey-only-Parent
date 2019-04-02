@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/public.css" />
+    <link rel="stylesheet" href="../css/teacherRegistration.css" />
+    <link rel="stylesheet" href="../time/mobiscroll_002.css" />
+    <link rel="stylesheet" href="../time/mobiscroll.css" />
+    <link rel="stylesheet" href="../time/mobiscroll_003.css" />
+    <script type="text/javascript">
+      document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+    </script>
+    <style>
+    	.teacherTeaching .publicTimeStyle{
+    		margin: 0;
+    		border-bottom: .01rem solid rgb(221,221,221);
+    	}
+    	.teacherTeachingCourse{
+    		width: 100%;
+    		height: 2.8rem;
+    		background: #fff;
+    		margin-bottom: .09rem;
+    	}
+    	.TeachingCourseTitle{
+    		margin-left: .3rem; 
+    		height: .78rem;
+    		line-height: .78rem;  		
+    	}
+    	.TeachingCourseTitle h3{
+    		display: inline-block;
+    		font-size: .28rem;
+    		color: rgb(53,53,53);
+    	}
+    	.TeachingCourseTitle span{
+    		display: inline-block;
+    		font-size: .28rem;
+    		color: rgb(53,53,53);
+    		margin-left: .24rem;
+    	}
+    	.TeachingCourseTitle i{
+    		font-size: .22rem;
+    		color: rgb(153,153,153);
+    		float: right;
+    		margin-right: .3rem;
+    	}
+    	.TeachingCourseChoose{
+    		width: 100%;
+    		height: .5rem;
+    		background: #fafafa;
+    	}
+    	.TeachingCourseChoose div{
+    		display: inline-block;
+    	}
+    	.TeachingCourseLeft,.TeachingCourseRight{
+    		width: .5rem;
+    		height: .5rem;
+    		background: #f1f0f0;
+    	}
+    	.TeachingCourseChoose img{
+    		width: .3rem;
+    		height: .3rem;
+    		margin: .1rem .1rem;
+     	}
+     	.TeachingCourseRight{
+     		float: right;
+     	}
+     	.TeachingCourseTime{
+     		width: 85%;
+     		height: .5rem;
+     		vertical-align: top;
+     		line-height:.5rem;
+     		overflow: hidden;
+     	}
+     	.TeachingCourseTime span{
+     		font-size: .22rem;
+     		color: rgb(153,153,153);
+     		margin: 0 .21rem;
+     	}
+     	.TeachingCoursePrepares div{
+     		display: inline-block;
+     	}
+     	.TeachingCoursePreparesTeacher{
+     		width: 75%;
+     	}
+     	.TeachingCoursePreparesTeacher ul{
+     		margin-top: .22rem;
+     		width: 32%;
+     		display: inline-block;
+     		font-size: .24rem;
+     		text-align: center;
+     	}
+     	.TeachingCoursePreparesTeacher ul li{
+     		padding:.13rem 0;
+     	}
+     	.TeachingCoursePreparesColor_one{
+     		color: rgb(233,32,32);
+     	}
+     	.TeachingCoursePreparesColor_two{
+     		color: rgb(102,102,102);
+     	}
+     	.TeachingCoursePreparesUpload{
+     		vertical-align: top;
+     	}
+     	.TeachingCoursePreparesUpload button{
+     		width: 1rem;
+     		height: .4rem;
+     		font-size: .22rem;
+     		text-align: center;
+     		line-height: .4rem;
+     		background: #8CC63F;
+     		border-radius: .06rem;
+     		color: #fff;
+     		border-color: #8CC63F;
+     		margin-top: .56rem;
+     	}
+    </style>
+	</head>
+	<body>
+		<div class="teacherTeaching">
+			<div class="publicTitle">
+				<img src="../img/enter.png" />
+	    	<h2>教学管理</h2>
+			</div>
+			<div class="publicTime">
+				<div class="publicTimeStyle">
+					<h3>时间：</h3>
+					<div class="publicchooseTime">
+						<div class="pulicChooseTimeStyle">
+							<div class="demos">
+								<input value="" class="" readonly="readonly" name="teacherTeachingTimeStart" id="teacherTeachingTimeStart" type="text">
+							</div>
+						</div>
+						~
+						<div class="pulicChooseTimeStyle">
+							<div class="demos">
+								<input value="" class="" readonly="readonly" name="teacherTeachingTimeEnd" id="teacherTeachingTimeEnd" type="text">
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+			<div class="teacherTeachingCourse">
+				<div class="TeachingCourseTitle">
+					<h3>狮口惊</h3>
+					<span>周一</span>
+					<i>2019-02-20</i>
+				</div>
+				<div class="TeachingCourseChoose">
+					<div class="TeachingCourseLeft"><img src="../img/left.png" alt="" /></div>
+					<div class="TeachingCourseTime">
+						<span>10:20 - 11:20</span>
+						<span>10:20 - 11:20</span>
+						<span>10:20 - 11:20</span>
+						<span>10:20 - 11:20</span>
+					</div>
+					<div class="TeachingCourseRight"><img src="../img/rigth.png" alt="" /></div>
+				</div>
+				<div class="TeachingCoursePrepares">
+					<div class="TeachingCoursePreparesTeacher">
+						<ul class="TeachingCoursePreparesColor_one">
+							<li>课程名称</li>
+							<li>无备课</li>
+						</ul>
+						<ul class="TeachingCoursePreparesColor_two">
+							<li>班主任</li>
+							<li>有备课</li>
+						</ul>
+						<ul class="TeachingCoursePreparesColor_two">
+							<li>班主任</li>
+							<li>有备课</li>
+						</ul>
+					</div>
+					<div class="TeachingCoursePreparesUpload">
+						<button>点击上传</button>
+					</div>
+				</div>
+			</div>
+			<div class="teacherTeachingCourse">
+				<div class="TeachingCourseTitle">
+					<h3>狮口惊</h3>
+					<span>周一</span>
+					<i>2019-02-20</i>
+				</div>
+				<div class="TeachingCourseChoose">
+					<div class="TeachingCourseLeft"><img src="../img/left.png" alt="" /></div>
+					<div class="TeachingCourseTime">
+						<span>10:20 - 11:20</span>
+						<span>10:20 - 11:20</span>
+						<span>10:20 - 11:20</span>
+						<span>10:20 - 11:20</span>
+					</div>
+					<div class="TeachingCourseRight"><img src="../img/rigth.png" alt="" /></div>
+				</div>
+				<div class="TeachingCoursePrepares">
+					<div class="TeachingCoursePreparesTeacher">
+						<ul class="TeachingCoursePreparesColor_one">
+							<li>课程名称</li>
+							<li>无备课</li>
+						</ul>
+						<ul class="TeachingCoursePreparesColor_two">
+							<li>班主任</li>
+							<li>有备课</li>
+						</ul>
+						<ul class="TeachingCoursePreparesColor_two">
+							<li>班主任</li>
+							<li>有备课</li>
+						</ul>
+					</div>
+					<div class="TeachingCoursePreparesUpload">
+						<button>点击上传</button>
+					</div>
+				</div>
+			</div>
+			<div class="teacherTeachingCourse">
+				<div class="TeachingCourseTitle">
+					<h3>狮口惊</h3>
+					<span>周一</span>
+					<i>2019-02-20</i>
+				</div>
+				<div class="TeachingCourseChoose">
+					<div class="TeachingCourseLeft"><img src="../img/left.png" alt="" /></div>
+					<div class="TeachingCourseTime">
+						<span>10:20 - 11:20</span>
+						<span>10:20 - 11:20</span>
+						<span>10:20 - 11:20</span>
+						<span>10:20 - 11:20</span>
+					</div>
+					<div class="TeachingCourseRight"><img src="../img/rigth.png" alt="" /></div>
+				</div>
+				<div class="TeachingCoursePrepares">
+					<div class="TeachingCoursePreparesTeacher">
+						<ul class="TeachingCoursePreparesColor_one">
+							<li>课程名称</li>
+							<li>无备课</li>
+						</ul>
+						<ul class="TeachingCoursePreparesColor_two">
+							<li>班主任</li>
+							<li>有备课</li>
+						</ul>
+						<ul class="TeachingCoursePreparesColor_two">
+							<li>班主任</li>
+							<li>有备课</li>
+						</ul>
+					</div>
+					<div class="TeachingCoursePreparesUpload">
+						<button>点击上传</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../js/jquery.min.js"></script>
+    <script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../time/mobiscroll_002.js"></script>
+    <script src="../time/mobiscroll_004.js"></script>
+    <script src="../time/mobiscroll.js"></script>
+    <script src="../time/mobiscroll_003.js"></script>
+    <script src="../time/mobiscroll_005.js"></script>
+    <script type="text/javascript">
+    	mui.init()
+    </script>
+    <script type="text/javascript"> 
+    	$(function () {
+				var currYear = (new Date()).getFullYear();	
+				var opt={};
+				opt.date = {preset : 'date'};
+				opt.datetime = {preset : 'datetime'};
+				opt.time = {preset : 'time'};
+				opt.default = {
+					theme: 'android-ics light', //皮肤样式
+		      display: 'modal', //显示方式 
+	        mode: 'scroller', //日期选择模式
+					dateFormat: 'yyyy-mm-dd',
+					lang: 'zh',
+					showNow: true,
+					nowText: "今天",
+	        startYear: currYear - 50, //开始年份
+	        endYear: currYear + 50 //结束年份
+				};
+		  	$("#teacherTeachingTimeStart").mobiscroll($.extend(opt['date'], opt['default']));
+		  	$("#teacherTeachingTimeEnd").mobiscroll($.extend(opt['date'], opt['default']));	  	
+	    });
+    </script>
+	</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/public.css" />
+    <script type="text/javascript">
+      document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+    </script>
+    <style>
+    	body{
+    		background: #fff;
+    	}
+    	.teacherChildDetailsTitle{
+    		width: 100%;
+    		height: .9rem;
+    		line-height: .9rem;
+    		border-bottom: 1px solid rgb(221,221,221);
+    	}
+    	.teacherChildDetailsTitle h3{
+    		display: inline-block;
+    		height: .9rem;
+    		line-height: .9rem;
+    		margin-left:.3rem ;
+    		font-size: .3rem;
+    		color: rgb(51,51,51);
+    	}
+    	.teacherChildDetailsTitle span{
+    		display: inline-block;
+    		font-size:.28rem;
+    		color: rgb(51,51,51);
+    	}
+    	.ChildDetailsState{
+    		width: 100%;
+    		height: .84rem;
+    		line-height: .84rem;
+    	}
+    	.ChildDetailsState h3{
+    		display: inline-block;
+    		height: .84rem;
+    		line-height: .84rem;
+    		font-size: .3rem;
+    		color: rgb(51,51,51);
+    		margin-left:.3rem ;
+    		vertical-align: top;
+    	}
+    	.ChildDetailsState .ChilsDetailsChooseradio{
+    		display: inline-block;
+    	}
+    	.ChilsDetailsChooseradio .mui-radio{
+    		display: inline-block;
+    	}
+    	.ChilsDetailsChooseradio .mui-radio input{
+    		margin-top: .2rem;
+    	}
+    	.ChilsDetailsChooseradio .mui-radio input:before{
+    		display: block;
+    		font-size: .2rem !important;
+    		color: #A1CB46;
+    	}
+    	.mui-checkbox.mui-left label, .mui-radio.mui-left label{
+    		padding-right:.09rem ;
+    		padding-left: 1rem;
+    		font-size: .28rem;
+    	}
+    	.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before{
+    		color: #A1CB46;
+    	}
+    	.ChildDetailsInformation{
+    		width: 100%;
+    		height: 2.5rem;
+    	}
+    	.Studentinformation{
+    		margin-left:.3rem ;
+    	}
+    	.Studentinformation h3{
+    		font-size: .3rem;
+    		color: rgb(51,51,51);
+    		padding-top: .28rem;
+    		padding-bottom: .1rem;
+    	}
+    	.StudentinformationContent div{
+    		display: inline-block;
+    		font-size: .28rem;
+    		margin: .1rem 0 .1rem .4rem;
+    	}
+    	.StudentinformationContent input{
+    		width: 1.1rem;
+    		height: .35rem;
+    	}
+    	.ChildDetailsSource{
+    		width: 100%;
+    		height: 2.5rem;
+    	}
+    	.SourceofInformation{
+    		margin-left: .3rem;
+    	}
+    	.studentsSourceofInformation{
+    		padding-top: .27rem;
+    		color: rgb(51,51,51);
+    	}
+    	.studentsSourceofInformation h3{
+    		font-size: .3rem;
+    		display: inline-block;
+    	}
+    	.studentsSourceofInformation span{
+    		font-size: .28rem;
+    	}
+    	.studentsCharge{
+    		padding-top: .24rem;
+    		color: rgb(51,51,51);
+    	}
+    	.studentsCharge h3{
+    		font-size: .3rem;
+    		display: inline-block;
+    		vertical-align: top;
+    	}
+    	.studentsCharge div{
+    		display: inline-block;
+    	}
+    	.studentsCharge div span{
+    		display: block;
+    		font-size: .28rem;
+    		margin-bottom: .24rem;
+    	}
+    	.SourceofInformationContent h3{
+    		font-size: .3rem;
+    		color: rgb(51,51,51);
+    		padding: .27rem 0 .24rem .3rem;
+    	}
+    	.Fillinthe{
+    		width: 6.9rem;
+    		height: 2rem;    	
+    		margin: 0 auto;
+    	}
+    	.Fillinthe textarea{
+    		width: 6.9rem;
+    		height: 2rem;
+    		font-size: .28rem;
+    		border: .01rem solid rgb(210,210,210);
+    		background: rgb(245,245,245);
+    	}
+    	.ChildDetailsSave{
+    		margin-top: .7rem;
+    	}
+    	.ChildDetailsSave button{
+    		display: block;    		
+    		width: 2.4rem;
+    		height: .8rem;
+    		margin: 0 auto;
+    		background: rgb(140,198,63);
+    		border-color: rgb(140,198,63);
+    		color: #fff;
+    		border-radius: .06rem;
+    		font-size: .36rem;
+     	}
+    </style>
+	</head>
+	<body>
+		<div class="teacherChildDetails">
+			<div class="publicTitle">
+				<img src="../img/enter.png" / id="aa">
+	    	<h2>幼儿详情</h2>
+			</div>
+			<div class="teacherChildDetailsTitle">
+				<h3>负责老师：</h3>
+				<span>啥奖励</span>
+			</div>
+			<div class="ChildDetailsState">
+				<h3>状态：</h3>
+				<div class="ChilsDetailsChooseradio">
+					<div class="mui-input-row mui-radio mui-left">
+						<label>有意</label>
+						<input name="radio1" type="radio">
+					</div> 
+					<div class="mui-input-row mui-radio mui-left">
+						<label>无意</label>
+						<input name="radio1" type="radio">
+					</div>
+					<div class="mui-input-row mui-radio mui-left">
+						<label>意向强</label>
+						<input name="radio1" type="radio">
+					</div>
+				</div>
+			</div>
+			<div class="publicFill"></div>
+			<div class="ChildDetailsInformation">
+				<div class="Studentinformation">
+					<h3>学生的基本信息:</h3>
+					<div class="StudentinformationContent">
+						<div>
+							<label for="">姓名</label>
+							<input type="" name="" id="" value="" />
+						</div>
+						<div>
+							<label for="">性别</label>
+							<input type="" name="" id="" value="" />
+						</div>
+						<div>
+							<label for="">籍贯</label>
+							<input type="" name="" id="" value="" />
+						</div>
+						<div>
+							<label for="">出生日期</label>
+							<input type="" name="" id="" value="" />
+						</div>
+						<div>
+							<label for="">家庭住址</label>
+							<input type="" name="" id="" value="" />
+						</div>
+						<div>
+							<label for="">曾在园所</label>
+							<input type="" name="" id="" value="" />
+						</div>
+					</div>
+				</div>				
+			</div>
+			<div class="publicFill"></div>
+			<div class="ChildDetailsSource">
+				<div class="SourceofInformation">
+					<div class="studentsSourceofInformation">
+						<h3>学生信息来源：</h3>
+						<span>扫街</span>
+					</div>
+					<div class="studentsCharge">
+						<h3>学生收费标准：</h3>
+						<div>
+							<span>托费标准</span>
+							<span>缴费周期</span>
+							<span>缴费时间</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="publicFill"></div>
+			<div class="StudentsSourceofInformation">
+				<div class="SourceofInformationContent">
+					<h3>学生信息来源：</h3>
+					<div class="Fillinthe">
+						<textarea name="" rows="" cols=""></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="ChildDetailsSave">
+				<button>保存</button>
+			</div>
+		</div>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    	mui.init()
+    </script>
+				<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+				<script type="text/javascript">
+				$("#aa").click(function() {
+					window.location.replace("parentsIndex.html")
+				})
+		
+				</script>
+	</body>
+	
+</html>

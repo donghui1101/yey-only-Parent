@@ -1,0 +1,83 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 100%;
+	background-color: rgb(255,255,255);
+		font-family: PingFang-SC-Medium;
+		font-size: 0.32rem;
+	
+}
+
+
+
+ul li {
+	list-style: none;
+}
+
+
+.clearfix:after {
+	content: "";
+	display: block;
+	visibility: hidden;
+	height: 0;
+	clear: both;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+
+
+.fonta {
+	font-family: PingFang-SC-Medium;
+	font-size: 0.32rem;
+
+	color: rgb(51, 51, 51);
+
+}
+
+.fontb {
+	font-family: PingFang-SC-Regular;
+	font-size: 0.28rem;
+	color: rgb(102, 102, 102);
+}
+.mui-icon-back {
+	position: absolute;
+	left: 0.2rem;
+
+}
+
+.title {
+	height: 1.28rem;
+	background-color: rgb(140, 198, 63);
+	padding-top: 0.58rem;
+	text-align: center;
+	color: rgb(255, 255, 255);
+}
+
+	
+.text{
+	background-color: rgb(255,255,255);
+	padding-top: 0.26rem;
+	padding-left: 0.26rem;
+	padding-right: 0.26rem;
+	
+	}
+	.tt{
+		margin-bottom: 0.3rem;
+	}
+	
+	.img{
+		line-height: 3.88rem;
+		text-align: center;
+	}
+	img{
+		width: 6.9rem;
+		height: 3.88rem;
+		margin-top: 0.41rem;
+		
+	}

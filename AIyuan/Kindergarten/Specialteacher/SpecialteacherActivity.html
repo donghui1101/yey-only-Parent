@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+    <title>聪明瞬间</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/public.css" />
+    <script type="text/javascript">
+      document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+    </script>
+    <style>
+    	body{
+    		background: #f5f5f5;
+    	}
+    	.SpecialActivity{
+    		width: 100%;
+    		height: 1.9rem;
+    		background: #f5f5f5;
+    		padding-top: .1rem;
+    	}
+    	.SpecialActivity .publicTable{
+    		width: 6.9rem;
+    		margin: 0 auto;
+    	}
+    	.SpecialActivity .publicTable td{
+    		width: 20%;
+    		border: none;
+    		padding: .1rem 0;
+    	}
+    	.SpecialActivityUploat{
+    		width: 100%;
+    		height: 2.35rem;
+    		background: #fff;
+    		margin-bottom: .1rem;
+    	}
+    	.SpecialActivityImgUploat{
+    		display: flex;
+    		justify-content:space-around;
+    	}
+    	.SpecialActivityImgUploat img{
+    		width: 2.02rem;
+    		height: 1.18rem;
+    	}
+    	.SpecialActivityUploat h3{
+    		padding: .3rem 0 .2rem .3rem;
+    		font-size: .3rem;
+    		color: rgb(51,51,51);
+    	}
+    	.SpecialActivityVideoUploat{
+    		margin-left: .3rem;
+    	}
+    	.SpecialActivityVideoUploat img{
+    		width: 2.02rem;
+    		height: 1.18rem;
+    	}
+    	.SpecialActivityDetermine{
+    		width: 100%;
+    		position: absolute;
+    		bottom: 1rem;
+    		left: 0;
+    	}
+    	.SpecialActivityDetermine button{
+    		width: 2.4rem;
+    		height: .9rem;
+    		background: #8CC63F;
+    		border-color: #8CC63F;
+    		color: #fff;
+    		font-size: .36rem;
+    		display: block;
+    		margin: 0 auto;
+    	}
+    </style>
+	</head>
+	<body>
+		<div class="SpecialteacherActivity">
+			<div class="publicTitle">
+				<img src="../img/enter.png" / id="aa">
+	    	<h2>聪明瞬间</h2>
+			</div>
+			<div class="SpecialActivity">
+				<table class="publicTable">
+					<tr><td>学生</td><td>学生</td><td>学生</td><td>学生</td><td>学生</td></tr>
+					<tr><td>学生</td><td>学生</td><td>学生</td><td>学生</td><td>学生</td></tr>
+					<tr><td>学生</td><td>学生</td><td>学生</td><td>学生</td><td>学生</td></tr>
+					<tr><td>学生</td><td>学生</td><td>学生</td><td>学生</td><td>学生</td></tr>
+				</table>
+			</div>
+			<div class="SpecialActivityUploat">	
+				<h3>图片上传：</h3>
+				<div class="SpecialActivityImgUploat">
+					<img src="../img/upload.png"/>
+					<img src="../img/upload.png"/>
+					<img src="../img/upload.png"/>
+				</div>
+			</div>
+			<div class="SpecialActivityUploat">	
+				<h3>视频上传：</h3>
+				<div class="SpecialActivityVideoUploat">
+					<img src="../img/upload.png"/>
+				</div>
+			</div>
+			<div class="SpecialActivityDetermine">
+				<button>确定</button>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#aa").click(function() {
+				window.location.replace("SpecialteacherIndex.html")
+			})
+
+			</script>

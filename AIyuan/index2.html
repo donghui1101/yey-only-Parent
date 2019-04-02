@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/mui.css" />
+	</head>
+	<body>
+		<link rel="stylesheet" type="text/css" href="css/shouye.css" />
+		<link rel="stylesheet" type="text/css" href="css/shouye1.css" />
+		<script type="text/javascript">
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+		</script>
+		</head>
+		<body>
+			<!-- 主界面不动、菜单移动 -->
+			<!-- 侧滑导航根容器 -->
+			<!--<div class="mui-off-canvas-wrap mui-draggable mui-slide-in">-->
+			<!-- 菜单容器 -->
+			<!--<aside class="mui-off-canvas-left" id="offCanvasSide">
+	    <div class="mui-scroll-wrapper">
+	      <div class="mui-scroll">
+	        <!-- 菜单具体展示内容 
+	        
+	      </div>
+	    </div>
+	  </aside>-->
+			<!-- 主页面容器 -->
+
+			<!--<div class="mui-inner-wrap">-->
+			<div class="banner">
+				<img src="img/banner.png" />
+			</div>
+			<div class="content">
+				<dl id="aa" >
+					<dt><img src="img/shanshi.png" > </dt>
+					<dd>营养膳食</dd>
+				</dl >
+				<dl id="bb">
+					<dt><img src="img/jingying.png" style="width: 1.34rem;"> </dt>
+					<dd>园所经营</dd>
+				</dl>
+				<dl id="cc">
+					<dt><img src="img/zhibiao.png"> </dt>
+					<dd>指标统计</dd>
+				</dl>
+				<dl style="margin-right: 0;" id="dd">
+					<dt><img src="img/kaohe.png"> </dt>
+					<dd>考核管理</dd>
+				</dl>
+				<dl id="ee">
+					<dt><img src="img/kaoqin.png" > </dt>
+					<dd>学生考勤</dd>
+				</dl>
+				<dl id="ff">
+					<dt><img src="img/zhaosheng.png" style="width: 1.34rem;"> </dt>
+					<dd>招生管理</dd>
+				</dl>
+				<dl id="gg">
+					<dt><img src="img/dudao.png"> </dt>
+					<dd>督导日志</dd>
+				</dl>
+				<dl style="margin-right: 0;" id="hh">
+					<dt><img src="img/manage.png"> </dt>
+					<dd>教学管理</dd>
+				</dl>
+			</div>
+			<div class="listen">
+				<div class="liste">
+					<img src="img/xinwen.png" />
+				</div>
+				<p>的粉红色的任何事都认同和</p>
+				<span>更多</span>
+			</div>
+			<div class="title">
+				<p class="tit">经营数据</p>
+			</div>
+			<footer>
+				<ul>
+					<li class="foot foot1" id="f1">
+						<img src="img/shouyexuanzhong.png" alt="" />
+						<p class="font" style=" color:rgb(140,198,43) ;">首页</p>
+					</li>
+					<li class="foot foot2" id="f2">
+						<img src="img/ziyuan.png" alt="" />
+						<p class="font">资源</p>
+					</li>
+					<li class="foot foot5" id="f3">
+						<img src="img/yuanwu.png" alt="" />
+						<p class="font">园务</p>
+					</li>
+					<li class="foot foot5" id="f4">
+						<img src="img/myweixuan.png" alt="" />
+						<p class="font">我的</p>
+					</li>
+				</ul>
+			</footer>
+			<div id="aa">
+				<!-- 缩放式侧滑（类手机QQ） -->
+				<!-- 侧滑导航根容器 -->
+				<div class="mui-off-canvas-wrap mui-draggable mui-scalable">
+				  <!-- 菜单容器 -->
+				  <aside class="mui-off-canvas-left mui-transitioning" id="offCanvasSide">
+					<div class="mui-scroll-wrapper">
+					  <div class="mui-scroll">
+						<!-- 菜单具体展示内容 -->
+						
+					  </div>
+					</div>
+				  </aside>
+				  <!-- 主页面容器 -->
+				  <div class="mui-inner-wrap mui-transitioning">
+					<!-- 主页面标题 -->
+					<header class="mui-bar mui-bar-nav">
+					  <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left" href="#offCanvasSide"></a>
+					  <h1 class="mui-title">标题</h1>
+					</header>
+					<nav class="mui-bar mui-bar-tab">
+						<a class="mui-tab-item mui-active">
+							<span class="mui-icon mui-icon-home"></span>
+							<span class="mui-tab-label">首页</span>
+						</a>
+						<a class="mui-tab-item">
+							<span class="mui-icon mui-icon-phone"></span>
+							<span class="mui-tab-label">电话</span>
+						</a>
+						<a class="mui-tab-item">
+							<span class="mui-icon mui-icon-email"></span>
+							<span class="mui-tab-label">邮件</span>
+						</a>
+						<a class="mui-tab-item">
+							<span class="mui-icon mui-icon-gear"></span>
+							<span class="mui-tab-label">设置</span>
+						</a>
+					</nav>
+					<div class="mui-content mui-scroll-wrapper">
+					  <div class="mui-scroll">
+						<!-- 主界面具体展示内容 -->
+						
+					  </div>
+					</div>  
+					<div class="mui-off-canvas-backdrop"></div>
+				  </div>
+				</div>
+			</div>
+			<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+			<script type="text/javascript">
+				mui.init()
+			</script>
+			<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+			<script type="text/javascript">
+				$("#aa").click(function() {
+					window.location.replace("hb5.html")
+				})
+				$("#bb").click(function() {
+				
+					window.location.replace("index28.html")
+				})
+				$("#cc").click(function() {
+				
+					window.location.replace("index17.html")
+				})
+				$("#dd").click(function() {
+				
+					window.location.replace("fb3.html")
+				})
+				$("#ee").click(function() {
+				
+					window.location.replace("index19.html")
+				})
+				$("#ff").click(function() {
+				
+					window.location.replace("hb9.html")
+				})
+				
+				
+				
+				
+				$("#gg").click(function() {
+				
+					window.location.replace("hb11.html")
+				})
+				$("#hh").click(function() {
+				
+					window.location.replace("index25.html")
+				})
+				$("#f1").click(function() {
+				
+					window.location.replace("index2.html")
+				})
+				$("#f2").click(function() {
+				
+					window.location.replace("hb1.html")
+				})
+			
+				$("#f3").click(function() {
+				
+					window.location.replace("ywgl.html")
+				})
+				$("#f4").click(function() {
+				
+					window.location.replace("my.html")
+				})
+				
+				</script>
+		</body>
+</html>

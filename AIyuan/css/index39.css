@@ -1,0 +1,87 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 100%;
+}
+
+ul li {
+	list-style: none;
+}
+
+body {
+	font-family: PingFang-SC-Medium;
+	font-size: 0.32rem;
+
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	visibility: hidden;
+	height: 0;
+	clear: both;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+.mui-icon-back {
+	position: absolute;
+	left: 0.2rem;
+	
+}
+
+.title {
+	height: 1.28rem;
+	background-color: rgb(140, 198, 63);
+	padding-top: 0.58rem;
+	text-align: center;
+	color: rgb(255, 255, 255);
+}
+
+# title {
+	font-family: PingFang-SC-Medium;
+	font-size: 0.32rem;
+}
+
+.fonta {
+	font-family: PingFang-SC-Medium;
+	font-size: 0.32rem;
+
+	color: rgb(51, 51, 51);
+
+}
+
+.fontb {
+	font-family: PingFang-SC-Regular;
+	font-size: 0.28rem;
+	color: rgb(102, 102, 102);
+}
+
+
+.box {
+	height: 0.92rem;
+	line-height: 0.92rem;
+	background-color: rgb(255, 255, 255);
+
+}
+
+.box {
+	font-size: 0.28rem;
+	line-height: 0.92rem;
+	padding-left: 0.7rem;
+	border-bottom: solid 0.01rem rgba(0, 0, 0, 0.2);
+	
+}
+.boxa{
+	padding-left: 0.7rem;
+	padding-right: 0.7rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+

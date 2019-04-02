@@ -1,0 +1,134 @@
+*{
+	margin:0;
+	padding:0;
+}
+html,body{
+	padding-bottom:1.5rem;
+}
+.banner{
+	width: 100%;
+	height: 4.27rem;
+}
+.banner img{
+	height:100%;
+}
+.content{
+	width: 100%;
+	padding-left:0.3rem;
+	font-size:0.26rem;
+	height:2.39rem;
+	font-family: "PingFang-SC-Light";
+}
+.content dl{
+	/*width: 25%;*/
+	float:left;
+	text-align: center;
+	margin-right:0.52rem;
+}
+.content dt{
+	padding-top:0.32rem;
+	/*padding-bottom: 0.23rem;*/
+	/*background: red;*/
+}
+.content dd{
+	padding-bottom: 0.24rem;
+	/*text-align: center;*/
+}
+.content dl img{
+	width:1.34rem;
+	height:1.34rem;
+}
+.listen{
+	height:0.6rem;
+	width:100%;
+	line-height: 0.6rem;
+	padding-left:0.3rem;
+	font-family: "PingFang-SC-Light";
+	margin-bottom: 0.27rem;
+}
+.listen img{
+	/*display: inline-block;*/
+	vertical-align: middle;
+	width: 0.31rem;
+	height: 0.32rem;
+	float: left; 
+	margin-top:0.1rem;
+}
+
+.listen p{
+	float: left;
+	font-size: 0.24rem;
+	color:rgb(51,51,51) ;
+	font-family: "PingFang-SC-Light";
+	margin-left: 0.27rem;
+}
+.listen span{
+	margin-right:0.31rem;
+	float: right;
+	color:rgb(155,194,72) ;
+	font-size:0.24rem;
+}
+.title{
+	width: 100%;
+	font-size:0.24rem;
+	color:rgb(51,51,51) ;
+	font-family: "PingFang-SC-Light";
+	padding-left:0.16rem;
+	margin-bottom:2.5rem;
+}
+.title .tit{
+	width:100%;
+	/*text-align: center;*/
+	font-size:0.24rem;
+	color:rgb(51,51,51) ;
+	font-family: "PingFang-SC-Light";
+}
+.title ul{
+	padding:0.28rem 0;
+	/*background: red;*/
+	/*height:3.0rem;*/
+}
+.title li{
+	float: left;
+	width: 1.91rem;
+	height: 2.54rem;
+	list-style: none;
+	margin-right:0.68rem;
+	/*padding-right:0.68rem;*/
+}
+.title li img{
+	width: 1.91rem;
+	height: 2.54rem;
+}
+/*底部*/
+footer {
+  	background: #fff;
+  	width: 100%;
+  	height: 0.98rem;
+  	position: fixed;
+  	bottom: 0;
+  	left: 0;
+  	font-size:0.5rem;
+}
+footer ul {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 0.98rem;
+    justify-content: space-around;
+    text-align: center; 
+}
+footer ul  li{
+	list-style: none;
+}
+footer ul .foot img {
+    width: 0.4rem;
+    height: 0.4rem;
+    margin-top:0.3rem;
+}
+footer ul .foot p {
+    font-size: 0.22rem;
+}
+footer ul .foot1 p{
+
+}

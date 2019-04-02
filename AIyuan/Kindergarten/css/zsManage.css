@@ -1,0 +1,55 @@
+*{
+	padding:0;
+	margin:0;
+}
+.header span{
+	font-family: PingFang-SC-Medium;
+	font-size:0.3rem;
+	color:rgb(255,255,255);
+	float: right;
+	margin-right:0.3rem;
+}
+.title{
+	height:1rem;
+	line-height: 1rem;
+	padding-left:0.31rem;
+	font-weight: 700;
+	border-bottom:1px solid rgba(0,0,0,0.1);
+}
+.title span:first-of-type{
+	font-family: PingFang-SC-Medium;
+	font-size:0.32rem;
+	color:rgb(71,71,71);
+	float: left;
+	font-weight: 100;
+}
+.title span:last-of-type{
+	font-family: PingFang-SC-Medium;
+	font-size:0.3rem;
+	color:rgb(153,153,153);
+	float: right;
+	margin-right:0.32rem;
+	font-weight: 100;
+}
+.name{
+	border-bottom:1px solid rgba(0,0,0,0.1);
+}
+.zsName{
+	height:1rem;
+	/*background: red;*/
+	line-height: 1rem;
+	padding-left:0.31rem;
+}
+.zsName span:first-of-type{
+	font-family: PingFang-SC-Medium;
+	font-size:0.32rem;
+	color:rgb(71,71,71);
+	float: left;
+}
+.zsName span:last-of-type{
+	font-family: PingFang-SC-Medium;
+	font-size:0.3rem;
+	color:rgb(153,153,153);
+	float: right;
+	margin-right:0.32rem;
+}

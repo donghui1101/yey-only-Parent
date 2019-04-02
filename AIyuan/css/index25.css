@@ -1,0 +1,190 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 100%;
+}
+
+ul li {
+	list-style: none;
+}
+body {
+	font-family: PingFang-SC-Medium;
+	font-size: 0.32rem;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	visibility: hidden;
+	height: 0;
+	clear: both;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+.mui-icon-back {
+	position: absolute;
+	left: 0.2rem;
+
+}
+
+.title {
+	height: 1.28rem;
+	background-color: rgb(140, 198, 63);
+	padding-top: 0.58rem;
+	text-align: center;
+	color: rgb(255, 255, 255);
+}
+
+# title {
+	font-family: PingFang-SC-Medium;
+	font-size: 0.32rem;
+}
+
+.fonta {
+	font-family: PingFang-SC-Medium;
+	font-size: 0.3rem;
+
+	color: rgb(51, 51, 51);
+	line-height: 0.9rem;
+
+
+
+}
+
+.fontb {
+	font-family: PingFang-SC-Regular;
+	font-size: 0.28rem;
+	color: rgb(102, 102, 102);
+}
+
+
+
+.boxs {
+	width: 9.5rem;
+	height: 0.9rem;
+	background-color: rgb(255, 255, 255);
+	overflow: scroll;
+	white-space: nowrap;
+
+}
+
+
+.boxs::-webkit-scrollbar {
+	display: none;
+}
+
+.boxs span{
+	margin-right: 0.3rem;
+	}
+.bs {
+	
+border-bottom: solid 0.01rem rgba(0, 0, 0, 0.1);
+	line-height: 0.9rem;
+	display: flex;
+	
+}
+
+
+
+
+.bs div:nth-of-type(1) {
+	
+	padding-left: 0.3rem;
+	background-color: white;
+	width: 2.2rem;
+	height: 0.9rem;
+}
+
+
+.box{
+	height: 0.9rem;
+line-height: 0.9rem;
+	background-color: rgb(255, 255, 255);
+	padding-left: 0.3rem;
+	}
+	
+	
+
+.boxd {
+	height:0.8rem ;
+	line-height: 0.8rem;
+	margin-top: 0.2rem;
+	display: flex;
+	justify-content: space-between;
+	padding-left: 0.3rem;
+	padding-right: 0.3rem;
+	font-family: PingFang-SC-Medium;
+	font-size: 0.3rem;
+}
+.num {
+	font-family: PingFang-SC-Regular;
+	font-size: 0.2rem;
+	color: rgb(102,102,102);
+}
+
+.boxd span {
+	line-height: 0.9rem;
+
+}
+.kcsj{
+	font-family:PingFang-SC-Regular ;
+	color: rgb(102,102,102);
+	font-size: 0.22rem;
+	line-height: 0.45rem;
+	height: 0.45rem;
+	padding-left: 0.7rem;
+	padding-right: 0.7rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+.kcmc {
+	height: 1.74rem;
+	padding-top: 0.3rem;
+	padding-bottom: 0.3rem;
+	padding-left: 0.8rem;
+	background-color: rgb(255, 255, 255);
+	font-family:PingFang-SC-Regular ;
+	color: rgb(102,102,102);
+	font-size: 0.26rem;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+.js{
+	display: flex;
+	width: 4.6rem;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	
+}
+.bk{
+	display: flex;
+	width:4.6rem;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	
+}
+	
+.djsc{
+	position: absolute;
+	font-size: 0.22rem;
+	width: 1.1rem;
+	height: 0.4rem;
+	border-radius: 0.04rem;
+	color: white;
+	text-align: center;
+	background-color:rgb(140, 198, 63) ;
+	right: 1rem;
+	margin-top: 0.38rem;
+	margin-right: -0.5rem;
+
+
+}
+

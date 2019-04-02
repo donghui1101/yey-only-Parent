@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../css/mui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/my.css" />
+		<link rel="stylesheet" type="text/css" href="../css/shouye.css" />
+		<script type="text/javascript">
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+		</script>
+	</head>
+	<body>
+		<div class="my">
+			<h3>我的</h3>
+		</div>
+		<div class="content">
+			<div class="content_left">
+				<img src="../img/header.png" />
+			</div>
+			<div class="content_center">
+				<p>姓名:张三</p>
+				<span>手机号 :&nbsp;&nbsp;16754621548</span>
+			</div>
+			<div class="content_right">
+				<img src="../img/more.png" />
+			</div>
+		</div>
+		<div class="money" id="aa">
+			<div class="money_left">缴费</div>
+			<div class="money_right">
+				<img src="../img/more.png" />
+			</div>
+		</div>
+		<footer>
+			<ul>
+				<li class="foot foot1" id="f1">
+					<img src="../img/shouyeweixuan.png" alt="" />
+					<p class="font" >首页</p>
+				</li>
+				<li class="foot foot2">
+					<img src="../img/shujiweixuan.png" alt="" />
+					<p class="font">教材书籍</p>
+				</li>
+				<li class="foot foot5">
+					<img src="../img/myweixuan.png" alt="" />
+					<p class="font" style=" color:rgb(140,198,43) ;">我的</p>
+				</li>
+			</ul>
+		</footer>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#aa").click(function() {
+				window.location.replace("parentsPay.html")
+			})
+			$("#f1").click(function() {
+				window.location.replace("parentsIndex.html")
+			})
+		</script>
+	</body>
+</html>

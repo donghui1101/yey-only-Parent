@@ -1,0 +1,63 @@
+*{
+	margin:0;
+	padding:0;
+}
+#wrap{
+	background: rgb(255,255,255);
+}
+.header{
+	width:100%;
+	height:1.28rem;
+	background:rgb(140,198,63);
+	line-height: 1.28rem;
+}
+.header img{
+	width:0.34rem;
+	/*float: left;*/
+	height:0.34rem;
+	margin-left:0.3rem;
+	/*display: inline-block;*/
+	vertical-align: middle;
+}
+.header h2{
+	height:1.28rem;
+	color:rgb(255,255,255);
+	font-size:0.34rem;
+	display: inline-block;
+	font-family: PingFang-SC-Medium;
+	/*margin-left:2.50rem;*/
+	margin:0 0 0 2.50rem;
+	/*text-align: center;*/
+}
+.title{
+	width: 100%;
+	font-size:0.24rem;
+	color:rgb(51,51,51) ;
+	font-family: PingFang-SC-Medium;
+	padding-left:0.28rem;
+	/*margin-bottom:2.5rem;*/
+}
+.title .tit{
+	/*text-align: center;*/
+	font-size:0.28rem;
+	color:rgb(102,102,102) ;
+	height:0.88rem;
+	line-height: 0.88rem;
+	font-family: PingFang-SC-Medium;
+	/*padding:0.3rem 0 0.3rem 0.3rem;*/
+}
+.title ul{
+	height:1.4rem;
+}
+.title li{
+	float: left;
+	width: 2.1rem;
+	height: 1.4rem;
+	list-style: none;
+	margin-right:0.3rem;
+	/*padding-right:0.68rem;*/
+}
+.title li img{
+	width: 2.1rem;
+	height: 1.4rem;
+}

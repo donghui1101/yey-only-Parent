@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+     <link rel="stylesheet" type="text/css" href="../css/header.css"/>
+     <script type="text/javascript">
+            document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+    </script>
+</head>
+<style >
+	.mui-icon-back {
+		position: absolute;
+		left: 0.2rem;
+	
+	}
+	
+	.title {
+		height: 1.28rem;
+		background-color: rgb(140, 198, 63);
+		padding-top: 0.58rem;
+		text-align: center;
+		color: rgb(255, 255, 255);
+	}
+	
+	# title {
+		font-family: PingFang-SC-Medium;
+		font-size: 0.32rem;
+	}
+</style>
+
+<body>
+    <div class="title ">
+    	<span class="mui-icon mui-icon-back" id="aa"></span>
+    	<div id="title">
+    		幼儿成长档案
+    	</div>
+    </div>
+    <div class="content">
+    	<div class="content-top">
+    		<h3>周一</h3>
+    		<span>2018-12-08</span>
+    	</div>
+    	<div class="ig">
+    		<img src="../img/jiayuan.png" />
+    	</div>
+    </div>
+    <div class="content">
+    	<div class="content-top">
+    		<h3>周二</h3>
+    		<span>2018-12-08</span>
+    	</div>
+    	<div class="ig">
+    		<img src="../img/jiayuan.png" />
+    	</div>
+    </div>
+    <div class="content">
+    	<div class="content-top">
+    		<h3>周三</h3>
+    		<span>2018-12-08</span>
+    	</div>
+    	<div class="ig">
+    		<img src="../img/jiayuan.png" />
+    	</div>
+    </div>
+    <script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init()
+    </script>
+	<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	$("#aa").click(function() {
+		window.location.replace("parentsIndex.html")
+	})
+	$(".content").click(function() {
+		window.location.replace("jxxq.html")
+	})
+	
+	
+	
+	
+	</script>
+</body>
+</html>
+

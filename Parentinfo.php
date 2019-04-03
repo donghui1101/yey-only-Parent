@@ -6,9 +6,25 @@ use think\Controller;
 use think\Request;
 use think\Db;
 use app\api\controller\Basics;
+use think\Session;
 
 class Parentinfo extends Basics
 {
+
+    /*
+        ________________________________________________________________________________________________________________
+       |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
+       |++  author: Great programmer Mr. Ma                                                                           ++|
+       |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
+       |++  date:2019-04-03                                                                                             |
+       |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
+       |++  brief introduction:                                                                                         |
+       |________________________________________________________________________________________________________________|
+       |++ Interested friends can add me QQ:**769*3598   ---->Cracking a digit   ----->You'll get me.                 ++|
+       |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
+       |Tip: God of procedure+______^_^________^_^________^_^________^_^________^_^________^_^_________^_^_____+(joke)  |
+       |————————————————————————————————————————————————————————————————————————————————————————————————————————————————|
+    */
     /**
      * garden_spare  controller
      *
@@ -16,55 +32,71 @@ class Parentinfo extends Basics
      */
 
      /*
-           我的  目前这段代码好像写到这里不合适
+           我的  
      */
      // 根据家长电话号 为登录账号  密码后台随机先生成一个    
 
     public function getParentInfo(Request $req)
     {
         //获取家长信息
-        $admin_id =I("post.admin_id");
-        $password = I("post.password");
-        $username = trim($username);
-        $pwd = trim($pwd);
-        if(empty($admin_id) && empty($password) ){
-            rData('0',"非法登陆");
-        }  
-        //从session 中也可以取出家长的ID  然后去家长表中获取信息
-        $where = "id = $id";
-        $ParentInfo = Db::name('student_family')->where($where)->field('id,name,tel')->find()
-        if($ParentInfo){
-             return $Parentinfo;
+        $ParentInfo = session::get('usersid');
+        /*
+     更改需求  需要获取更多的家长资料时  session 最好不要存取太多的数据  session只获取 家长ID  此时开启以下代码就好
+            $id = $ParentInfo['id'];
+            $where = "id = $id";
+            $ParentInfo = Db::name('student_family')->where($where)->field('id,name,tel,此处填写获取字段')->find();
+        */
+        if(!empty($ParentInfo)){
+             rData('1','成功',$ParentInfo);
         }else{
-             $msg = '没有这个账号或者没有添加电话';
-             return $msg
+            return redirect('去登录  没有登录页');
         }
     }
-       //家长自己修改密码
+       //家长登录后自己修改密码
     public function updateParentPwd(Request $req)
     {
-         // 获取家长ID
-        $data = $req->only('password');
-        $where = "id = $家长ID";
-        $res = Db::name('student_family')->where($where)->updata($data);
+         // 获取家长ID   修改密码有问题
+        $ParentInfo = session::get('usersid');
+        if(!$ParentInfo){
+             return redirect('登录超时！  没有登录页');
+        }
+        $id = $ParentInfo['id'];
+        $req = $req->only('password,rpassword');
+        $password = $req['password'];
+        $repassword = $req['rpassword'];
+        if(!($password===$repassword)){
+             $msg = '两次密码不一致';
+             rData('0','失败',$msg);die;
+        }
+        $where = "id =$id";
+        $data['password'] =md5($password);
+        $res = Db::name('student_family')->where($where)->update($data);
+        $sql = Db::name('student_family')->getlastsql();
+        dump($sql);die;
         if($res){
              $msg = '修改密码成功';
              rData('1','成功',$msg);
         }else{
              $msg = '修改密码失败';
-             rData('1','失败',$msg);
+             rData('0','失败',$msg);
         }
+
+    }
+
+    //没有登录 忘记密码
+     public function ForgetPassword(Request $req)
+    {
+       
 
     }
     //获取学生信息   
     private function getStudentInfo($familyid='')
     {
-       //根据家长ID 去寻找关联的学生
         $id = $familyid;
         $where = "family_id = $id";
-        $StudentInfo = Db::name('student')->where($where)->field('id,name')->find();
+        $StudentInfo = Db::name('student')->where($where)->field('id,name,class_id,garden_id')->find();
         if($StudentInfo){
-             return $StudentInfo
+             return $StudentInfo;
         }else{
              $msg = '没有该学生记录';
              return $msg;
@@ -72,47 +104,43 @@ class Parentinfo extends Basics
     }
    
    // 获取缴费记录
-    private  function PaymentRecord($studentid='')
+    public  function PaymentRecord()
     {
-        $id = $studentid;
-        $where ="student_id = $id";  
-        $payInfo = Db::name('money')->where($where)->field('交的啥  交了多少钱')->find();
+        $familyid =session::get('usersid');
+        $id = $familyid['id'];
+        $student = $this->getStudentInfo($id);
+        $class_id = $student['class_id'];
+        $garden_id = $student['garden_id'];
+        //此处多个 and 条件  是为了更精准   如果后者觉得没有必要 可以酌情减去
+        $where ="student_id = {$id}  and state= 1 and class_id = {$class_id} and garden_id ={$garden_id}";  
+        $payInfo = Db::name('cause b')
+                      ->join('money a','a.cause_id = b.id')
+                      ->where($where)->field('b.name as causename,a.money')->select();
+        //此处判断缴费数据是二维还是一维  防止该学生只有一条缴费记录
+        if(isset($payInfo['causename'])){
+            $payInfo['causename'] = '应收'.$payInfo['causename'];
+        }else{
+            foreach($payInfo as $k=>$v){
+                $tmp = '应收'.$v['causename'];
+                $payInfo[$k]['causename'] = $tmp;
+            }
+        }    
         if($payInfo){
-            return $payInfo;
+            rData('1','成功',$payInfo);
         }else{
             $msg = '没有该学生缴费记录';
-            return $msg;
+            rData('1','没有缴费记录',$msg) ;
         }
       
     }
 
-    public function PayRecord()
-    {
-        $rows = $this->getParentInfo();
-        if(gettype($rows) == 'string'){
-             rData('1','失败',$rows);die;
-        }    
-        $student =$this->getStudentInfo($rows['id']);
-        if(gettype($student) == 'string'){
-             rData('1','成功',$student);die;
-        }
-        $money = $this->PaymentRecord($student['id']);
-        if(gettype($money) == 'string'){
-             rData('1','成功',$money);die;
-        }
-        $res = $money;
-        if($res){
-            rData('0','成功',$res);
-        }
-
-    }
     /**
      * .
      *
      * @return \think\Response
      */
     /*
-         add data
+        
     */
    //前端展示获取所有的信息  估计是目前用不到  
     protected  function show()

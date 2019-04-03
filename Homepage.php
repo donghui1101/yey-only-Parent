@@ -9,11 +9,20 @@ use app\api\controller\Basics;
 
 class Homepage extends Basics
 {
-    /**
-     * garden_spare  controller
-     *
-     * @return \think\Response
-     */
+     /*
+        ________________________________________________________________________________________________________________
+       |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
+       |++  author: Great programmer Mr. Ma                                                                           ++|
+       |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
+       |++  date:2019-04-03                                                                                             |
+       |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
+       |++  brief introduction:                                                                                         |
+       |________________________________________________________________________________________________________________|
+       |++ Interested friends can add me QQ:1*769*3*98   ---->Cracking a digit   ----->You'll get me.                 ++|
+       |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
+       |Tip: God of procedure+______^_^________^_^________^_^________^_^________^_^________^_^_________^_^_____+(joke)  |
+       |————————————————————————————————————————————————————————————————————————————————————————————————————————————————|
+    */
     /*
        家长登录首页
     */
@@ -21,34 +30,74 @@ class Homepage extends Basics
      //获取学生档案  
     public function studentFile()
     {
-         //调用parentinfo 控制器中  获取家长的方法 和 获取学生的方法得到学生ID 去档案表中查询
+        $family = session::get('usersid');
+        if($family){
+            return redirect('去登录  没有登录页');
+        }
+        $id = $family['id'];
         if(!empty($id)){
-               $where = "id = 学生的ID";
-                //根据学生ID 获取学生资料
-               $studentInfo = Db::name('student')->where($where)->field('name,sex,place,birthday,home,once_garden,source_id')->find();
+               $studentInfo = $this->getStudentInfo($id);
+               if(!$studentInfo){
+                   $msg = '没有该学生记录';
+                   rData('1','成功',$msg);
+               }
+               //获取来源信息
                if(!empty($studentInfo['source_id'])){
-                   // 根据来源ID 获取来源信息
                      $source_id = $studentInfo['source_id'];
                      $where="id = $source_id"
                      $msg = Db::name('message_source')->where($where)->find();
                      $studentInfo['msg'] = $msg;
-                     return $studentInfo; 
+                     rData('1','成功',$studentInfo); 
                }
+        }else{
+            return redirect('去登录  没有登录页');
         }
        
       
         
     }
-
+     //获取学生信息   
+    private function getStudentInfo($familyid='')
+    {
+        $id = $familyid;
+        $where = "family_id = $id";
+        $StudentInfo = Db::name('student')->where($where)->field('name,sex,place,birthday,home,garden_id,source_id')->find();
+        if($StudentInfo){
+             return $StudentInfo;
+        }else{
+             $msg = false;
+             return $msg;
+        }
+    }
+    
     //获取最新通知消息
     public function getNewMsg()
     {
-
-        Db::name('消息表')->field('添加时间，通知的消息')->order('id','DESC')->limit(1);
-        $sql = Db::name()->getlastsql();
-        dump($sql);
+        $family = session::get('usersid');
+        if(!$family){
+            return redirect('去登录  没有登录页');
+        }
+        $familyid = $family['id'];
+        $student = $this->getStudentInfo($familyid);
+        if(!$student){
+            $msg = '没有该学生记录';
+            rData('1','成功',$msg);
+        }
+        $garden_id = $student['garden_id'];
+        if(!$garden_id){
+            $msg = '该学生信息有错误';
+            rData('1','成功',$msg);
+        }
+        $where ="inform_status =1 and garden_id = {$garden_id} ";
+        $data = Db::name('inform')->where($where)->field('addtime,inform_title,inform_desc,inform_photo')->order('id','DESC')->limit(1);
+        if($data){
+            rData('1','成功',$data);
+        }else{
+            $msg = '数据库有问题';
+            rData('1','成功',$msg);
+        }
     }
-    //获取通知消息
+    //获取最近通知消息
     public function getMsg()
     {
          //获取更多消息  展示当月

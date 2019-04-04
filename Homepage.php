@@ -6,8 +6,9 @@ use think\Controller;
 use think\Request;
 use think\Db;
 use app\api\controller\Basics;
+use think\Session;
 
-class Homepage extends Basics
+class Homepage extends controller
 {
      /*
         ________________________________________________________________________________________________________________
@@ -26,6 +27,11 @@ class Homepage extends Basics
     /*
        家长登录首页
     */
+        // 首页展示
+    public function index()
+    {
+        return $this->fetch('./application/api/view/parent/index.html');
+    }
 
      //获取学生档案  
     public function studentFile()
@@ -44,10 +50,11 @@ class Homepage extends Basics
                //获取来源信息
                if(!empty($studentInfo['source_id'])){
                      $source_id = $studentInfo['source_id'];
-                     $where="id = $source_id"
+                     $where="id = $source_id";
                      $msg = Db::name('message_source')->where($where)->find();
                      $studentInfo['msg'] = $msg;
-                     rData('1','成功',$studentInfo); 
+                    return $this->fetch('./application/api/view/parent/pChildDetails.html');
+                    // rData('1','成功',$studentInfo); 
                }
         }else{
             return redirect('去登录  没有登录页');
@@ -107,17 +114,14 @@ class Homepage extends Basics
         $data = Db::name('消息表')->where($where)->field('添加时间，通知的消息')->select();
     }
 
-    // 首页展示
-    public function index()
-    {
-       
-    }
+   
 
     //获取膳食
     public function food()
     {   
           //应该是只获取当前家长孩子所在园区的营养膳食
          $food = Db::name('食物表')->select(); 
+         return $this->fetch('./application/api/view/parent/phb5.html');
     }
   
 }

@@ -47,7 +47,8 @@ class Parentinfo extends Basics
             $ParentInfo = Db::name('student_family')->where($where)->field('id,name,tel,此处填写获取字段')->find();
         */
         if(!empty($ParentInfo)){
-             rData('1','成功',$ParentInfo);
+            return $this->fetch('./application/api/view/parent/parentsMy.html');
+            // rData('1','成功',$ParentInfo);
         }else{
             return redirect('去登录  没有登录页');
         }
@@ -119,17 +120,22 @@ class Parentinfo extends Basics
         //此处判断缴费数据是二维还是一维  防止该学生只有一条缴费记录
         if(isset($payInfo['causename'])){
             $payInfo['causename'] = '应收'.$payInfo['causename'];
+            $payInfo['sum'] =$payInfo['money'];
         }else{
             foreach($payInfo as $k=>$v){
                 $tmp = '应收'.$v['causename'];
                 $payInfo[$k]['causename'] = $tmp;
             }
+             $arr = array_column($payInfo,'money');
+             $sum = array_sum($arr);
+             $payInfo['sum'] = $sum;
         }    
         if($payInfo){
             rData('1','成功',$payInfo);
         }else{
             $msg = '没有该学生缴费记录';
-            rData('1','没有缴费记录',$msg) ;
+            return $this->fetch('./application/api/view/parent/parentsPay.html');
+            //rData('1','没有缴费记录',$msg) ;
         }
       
     }

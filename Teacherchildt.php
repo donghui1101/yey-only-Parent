@@ -70,12 +70,12 @@ class Teacherchildt extends Base
       public function create(Request $request)
     { 
          // 这是单图上传  这是个BUG
-         $data = $request->file('files');
-         if(empty($data)){
+         $files = $request->file('files');
+         if(empty($files)){
             $msg = '请上传材料';
             rData('0','失败',$msg);die; 
          }
-         $info = $data->move(ROOT_PATH . 'public' . DS . 'uploads');
+         $info = $files->move(ROOT_PATH . 'public' . DS . 'uploads');
          $path = $info->getSavaName();
          $studentInfo = $request->only('student_id,admin_id');
          if(empty($studentInfo['student_id'])){
@@ -87,6 +87,7 @@ class Teacherchildt extends Base
             rData('0','失败',$msg);die; 
          }
          $studentInfo['desc'] = $path;
+         $studentInfo['staff_id'] = $studentInfo['admin_id'];
          $time = date("Y-m-d",strtotime("now"));
          $studentInfo['addtime'] = $time;
          $res = Db::name('childrenstime')->insert($studentInfo);
@@ -98,6 +99,40 @@ class Teacherchildt extends Base
               rData('0','失败',$msg);
          }
          
+    }
+
+    public function  add()
+    {
+      //多图上传
+         $files = $req->file('images');
+         $studentInfo = $request->only('student_id,admin_id');
+         $path = [];
+         foreach($files as $k=>$v){
+              if(!empty($v)){
+                   $info = $files->move(ROOT_PATH . 'public' . DS . 'uploads');
+                   $temp = $info->getSavaName();
+                   $path[] = array_push($temp);
+              }
+         }
+         $path = implode('@',$path);
+       //视频上传
+         
+         $studentInfo['desc'] = $path;
+         $studentInfo['staff_id'] = $studentInfo['admin_id'];
+         if($studentInfo){
+               $res = Db::name('childrenstime')->insert($studentInfo);
+               if($res){
+                    $msg = '添加成功';
+                    rData('1','成功',$msg);
+               }else{
+                    $msg = '上传资料失败';
+                    rData('0','失败',$msg);
+               }
+         }else{
+              $msg = '请填写完整资料';
+              rData('0','失败',$msg);
+         }
+
     }
 
    

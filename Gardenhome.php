@@ -50,7 +50,8 @@ class Gardenhome extends Basics
               $data = Db::name('garden_home')->where($where)->select();
               if($data){
                    $msg = '获取数据成功';
-                   rData('1','成功',$data);
+                  // $this->view('parent/parentsEducation',$data);
+                  rData('1','成功',$data);
               }else{
                    $msg = '无数据';
                    rData('0','失败',$msg);
@@ -60,5 +61,6 @@ class Gardenhome extends Basics
         }      
 
     }
+      return $this->fetch('./application/api/view/parent/parentsEducation.html');
    
 }

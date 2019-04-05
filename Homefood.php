@@ -8,9 +8,9 @@ use think\Db;
 use app\api\controller\Basics;
 use think\Session;
 
-class Childrenstime extends Basics
+class  Homefood  extends Basics
 {
-      /*
+     /*
         ________________________________________________________________________________________________________________
        |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
        |++  author: Great programmer Mr. Ma                                                                           ++|
@@ -19,54 +19,30 @@ class Childrenstime extends Basics
        |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
        |++  brief introduction:                                                                                         |
        |________________________________________________________________________________________________________________|
-       |++ Interested friends can add me QQ:1*769*35*8   ---->Cracking a digit   ----->You'll get me.                 ++|
+       |++ Interested friends can add me QQ:11769*3598   ---->Cracking a digit   ----->You'll get me.                 ++|
        |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
        |Tip: God of procedure+______^_^________^_^________^_^________^_^________^_^________^_^_________^_^_____+(joke)  |
        |————————————————————————————————————————————————————————————————————————————————————————————————————————————————|
     */
+
     /**
-     * 
+     * garden_spare  controller
      *
      * @return \think\Response
      */
-     /*
-        聪聪瞬间   家长端展示  
-     */
-    public function index()
+    /*
+          营养膳食 家长端
+    */
+   
+    public function show()
     {
-        $data = $this->getData();
-        if($data){
-             //rData('1','成功',$data);
-             $this->assign('data',$data);
-             // dump($data);die;
-             return $this->fetch('./application/api/view/parent/parentsSmart.html');
-        }else{
-             $msg = '没有想要获取的资料';
-             rData('0','没有资料',$msg);
-        }
+         return $this->fetch('./application/api/view/parent/phb5.html');
     }
-    public function getData()
-    {
-         //获取家长的ID  根据家长的ID 去聪明表中  展示该家长的孩子聪明数据
-         $flog = $_SESSION['flog'];
-         if(!$flog){
-              $this->redirect('去登录');
-         }
-         $id = $_SESSION['id'];
-         if(empty($id)){
-             return redirect('去登录  没有登录页');
-         }
-         $whereOne = "family_id = $id";
-         $student = Db::name('student')->where($whereOne)->field('id as student_id,name as student_name')->find();
-         if(empty($student)){
-             $msg = '无该学生数据';
-             rData('0','失败',$msg);
-         }
-         $studentid = $student['student_id'];
-         $where = "student_id = $studentid";
-         $data = Db::name('childrenstime')->where($where)->select();
-         $studentname = $student['student_name'];
-         $this->assign('studentname',$studentname);
-         return $data;
+   
+   private  function getData()
+    { 
+        
     }
+
+   
 }

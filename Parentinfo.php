@@ -39,7 +39,7 @@ class Parentinfo extends Basics
     public function getParentInfo(Request $req)
     {
         //获取家长信息
-        $ParentInfo = session::get('usersid');
+        $ParentInfo = $_SESSION['flog'];
         /*
      更改需求  需要获取更多的家长资料时  session 最好不要存取太多的数据  session只获取 家长ID  此时开启以下代码就好
             $id = $ParentInfo['id'];
@@ -47,12 +47,18 @@ class Parentinfo extends Basics
             $ParentInfo = Db::name('student_family')->where($where)->field('id,name,tel,此处填写获取字段')->find();
         */
         if(!empty($ParentInfo)){
+            $data['id'] = $_SESSION['id'];
+            $data['name'] = $_SESSION['name'];
+            $data['phone'] = $_SESSION['tel'];
+            $this->assign('data',$data);
             return $this->fetch('./application/api/view/parent/parentsMy.html');
             // rData('1','成功',$ParentInfo);
         }else{
             return redirect('去登录  没有登录页');
         }
     }
+
+
        //家长登录后自己修改密码
     public function updateParentPwd(Request $req)
     {
@@ -84,17 +90,28 @@ class Parentinfo extends Basics
 
     }
 
-    //没有登录 忘记密码
-     public function ForgetPassword(Request $req)
-    {
-       
 
+    // 缴费详情页
+    public function PayPage()
+    {
+         $payInfo = $this->PaymentRecord();
+         if($payInfo){
+             // rData('1','成功',$payInfo);
+                $this->assign('payInfo',$payInfo);
+                return $this->fetch('./application/api/view/parent/parentsPay.html');
+         }else{
+                $msg = '没有该学生缴费记录';
+                return $msg;
+            //rData('1','没有缴费记录',$msg) ;
+         }
     }
+
+   
     //获取学生信息   
     private function getStudentInfo($familyid='')
     {
         $id = $familyid;
-        $where = "family_id = $id";
+        $where = "family_id = $id"; 
         $StudentInfo = Db::name('student')->where($where)->field('id,name,class_id,garden_id')->find();
         if($StudentInfo){
              return $StudentInfo;
@@ -103,12 +120,17 @@ class Parentinfo extends Basics
              return $msg;
         }
     }
+
+
    
    // 获取缴费记录
-    public  function PaymentRecord()
+    private  function PaymentRecord()
     {
-        $familyid =session::get('usersid');
-        $id = $familyid['id'];
+        $flog =$_SESSION['flog'];
+        if(!$flog){
+            $this->redirect('去登录');
+        }
+        $id = $_SESSION['id'];
         $student = $this->getStudentInfo($id);
         $class_id = $student['class_id'];
         $garden_id = $student['garden_id'];
@@ -129,15 +151,17 @@ class Parentinfo extends Basics
              $arr = array_column($payInfo,'money');
              $sum = array_sum($arr);
              $payInfo['sum'] = $sum;
-        }    
-        if($payInfo){
-            rData('1','成功',$payInfo);
-        }else{
-            $msg = '没有该学生缴费记录';
-            return $this->fetch('./application/api/view/parent/parentsPay.html');
-            //rData('1','没有缴费记录',$msg) ;
-        }
-      
+        }  
+         return $payInfo;
+    }
+
+
+
+     //没有登录 忘记密码
+     public function ForgetPassword(Request $req)
+    {
+       
+
     }
 
     /**

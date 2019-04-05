@@ -2,6 +2,7 @@
 
 namespace app\api\controller;
 
+use app\admin\logic\UpgradeLogic;
 use think\Controller;
 use think\Request;
 use think\response\Json;
@@ -26,12 +27,25 @@ class Basics extends Controller
        |————————————————————————————————————————————————————————————————————————————————————————————————————————————————|
     */
     /*
-       家长登录验证    目前有个bug 就是超级用户登录 应该能看到家长端的菜单
     */
     
      public function __construct()
      {
+        session_start();
+        header("Cache-control: private");  // history.back返回后输入框值丢失问题 参考文章 http://www.tp-shop.cn/article_id_1465.html  http://blog.csdn.net/qinchaoguang123456/article/details/29852881
+        parent::__construct();
+        $upgradeLogic = new UpgradeLogic();
+        $upgradeMsg = $upgradeLogic->checkVersion(); //升级包消息        
+        $this->assign('upgradeMsg',$upgradeMsg);    
+        //用户中心面包屑导航
+        $navigate_admin = navigate_admin();
+        $this->assign('navigate_admin',$navigate_admin);
+        tpversion();     
         
+     }
+
+    public function signIn(Request $req)
+    {
         $username =I("get.username");
         $password = I("get.password");
         $username = trim($username);
@@ -50,13 +64,20 @@ class Basics extends Controller
         $sql = Db::name('student_family')->getlastsql();
         // dump($ParentInfo);
         if($ParentInfo){
-             session::set('usersid',$ParentInfo);
+             $_SESSION['flog'] = true;
+             $_SESSION['name'] = $ParentInfo['name'];
+             $_SESSION['id'] = $ParentInfo['id'];
+              if($_SESSION['flog']){
+                   $menu = $this->getMenu();
+                   $this->assign('menu',$menu);
+                   return $this->fetch('./application/api/view/parent/index.html');
+              }else{
+                    return $this->redirect('登录页');
+              }
         }else{
              $msg = '没有账号或者密码错误';
              rData('0','失败',$msg);
         }
-         
-        
     }
     //获取家长应该看到的菜单
     public function getMenu()
@@ -64,24 +85,31 @@ class Basics extends Controller
         $where = "status = 0";
         $menu = Db::name('user_node')->where($where)->select();
         if($menu){
-            rData('1','成功',$menu);
+            return $menu;
         }else{
             $msg = '获取菜单失败';
-            rData('0','失败',$msg);
+            return $msg;
         }
     }
 
-
-    public function SignOut()
+   // 退出
+    public function signOut()
     {
-        session_unset('usersid');
-        $flog = session::get('usersid');
+        $flog = $_SESSION['flog'] = false;
         if($flog){
-             $this->success("退出成功 回到登录页 缺少登录页");
-        }else{
             $msg = '退出失败';
             rData('1','失败',$msg);
+        }else{
+             unset( $_SESSION['name']);
+             unset( $_SESSION['id']);
+             $this->success("退出成功     回到登录页 缺少登录页");
         }
+    }
+
+  // 返回主页面
+    public function goBack()
+    {
+         $this->fetch('./application/api/view/parent/index.html');
     }
   
 }

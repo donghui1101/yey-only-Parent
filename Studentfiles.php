@@ -30,17 +30,17 @@ class Studentfiles extends Basics
      //获取学生档案  
     public function studentFile()
     {
-        session_start();
-        $flog = $_SESSION['flog'];
-        if(!$flog){
-            return redirect('去登录  没有登录页');
+        $ctoken = $this->getReq();
+        if(!$ctoken){
+            $msg = 'token失效 请重新登录';
+            rData('300','失败',$msg);
         }
-        $id = $_SESSION['id'];
+        $id = $ctoken['id'];
         if(!empty($id)){
                $studentInfo = $this->getStudentInfo($id);
                if(!$studentInfo){
                    $msg = '没有该学生记录';
-                   rData('1','成功',$msg);
+                   rData('200','成功',$msg);
                }
                //获取来源信息
                if(!empty($studentInfo['source_id'])){
@@ -49,12 +49,13 @@ class Studentfiles extends Basics
                      $msg = Db::name('message_source')->where($where)->find();
                      $studentInfo['msg'] = $msg;
                      $studentInfo['teacher'] = $this->getTeacher($studentInfo['class_id']);
-                    $this->assign('studentinfo',$studentInfo);
-                    return $this->fetch('./application/api/view/parent/pChildDetails.html');
-                    // rData('1','成功',$studentInfo); 
+                     //$this->assign('studentinfo',$studentInfo);
+                     //return $this->fetch('./application/api/view/parent/pChildDetails.html');
+                    rData('200','成功',$studentInfo); 
                }
         }else{
-            return redirect('去登录  没有登录页');
+               $msg = '登录超时';
+               rData('300','登录超时',$msg); 
         }
        
       
@@ -105,26 +106,27 @@ class Studentfiles extends Basics
     {
         $family = session::get('usersid');
         if(!$family){
-            return redirect('去登录  没有登录页');
+            
+            //return redirect('去登录  没有登录页');
         }
         $familyid = $family['id'];
         $student = $this->getStudentInfo($familyid);
         if(!$student){
             $msg = '没有该学生记录';
-            rData('1','成功',$msg);
+            rData('200','成功',$msg);
         }
         $garden_id = $student['garden_id'];
         if(!$garden_id){
-            $msg = '该学生信息有错误';
-            rData('1','成功',$msg);
+            $msg = '该学生信息有错误请更正';
+            rData('200','成功',$msg);
         }
         $where ="inform_status =1 and garden_id = {$garden_id} ";
         $data = Db::name('inform')->where($where)->field('addtime,inform_title,inform_desc,inform_photo')->order('id','DESC')->limit(1);
         if($data){
-            rData('1','成功',$data);
+            rData('200','成功',$data);
         }else{
             $msg = '数据库有问题';
-            rData('1','成功',$msg);
+            rData('500','成功',$msg);
         }
     }
     //获取最近通知消息

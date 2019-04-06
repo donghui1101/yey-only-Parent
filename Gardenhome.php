@@ -8,6 +8,13 @@ use think\Db;
 use app\api\controller\Basics;
 use think\Session;
 
+
+// 指定允许其他域名访问
+header('Access-Control-Allow-Origin:*');
+// 响应类型
+header('Access-Control-Allow-Methods:*');
+// 响应头设置
+header('Access-Control-Allow-Headers:x-requested-with,content-type');
 class  Gardenhome  extends Basics
 {
      /*
@@ -36,7 +43,12 @@ class  Gardenhome  extends Basics
    //家长观看
     public function show()
     {
-         $data = $this->getData();
+          $ctoken = $this->getReq();
+          if(!$ctoken){
+              $msg = 'token失效 请重新登录';
+              rData('300','失败',$msg);
+          }
+         $data = $this->getHomeData($ctoken['id']);
           if($data){
                if(isset($data['addtime'])){
                     $data['week'] = $this->get_week($data['addtime']); 
@@ -45,11 +57,12 @@ class  Gardenhome  extends Basics
                        $data[$k]['week'] = $this->get_week($v['addtime']);
                    }
                }
-               $this->assign('data',$data);
-               return $this->fetch('./application/api/view/parent/parentsEducation.html');
+               rData('200','成功',$data);
+               //$this->assign('data',$data);
+               //return $this->fetch('./application/api/view/parent/parentsEducation.html');
           }else{
                $msg = '无数据';
-               return $msg;
+               rData('200','无数据',$msg);
           }
     }
    
@@ -67,14 +80,11 @@ class  Gardenhome  extends Basics
 
    }
 
-   private  function getData()
+   private  function getHomeData($id='')
     { 
         //获取家园共育的信息   根据班级
-        $flog = $_SESSION['flog'];
-        if(!$flog){
-            return redirect('去登录  没有登录页');
-        }
-        $familyid = $_SESSION['id'];
+        
+        $familyid =$id;
         if(!empty($familyid)){
               $whereOne = "family_id = $familyid";
               $student = Db::name('student')->where($whereOne)->field('class_id')->find();

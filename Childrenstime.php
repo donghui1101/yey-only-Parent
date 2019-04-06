@@ -8,6 +8,12 @@ use think\Db;
 use app\api\controller\Basics;
 use think\Session;
 
+// 指定允许其他域名访问
+header('Access-Control-Allow-Origin:*');
+// 响应类型
+header('Access-Control-Allow-Methods:*');
+// 响应头设置
+header('Access-Control-Allow-Headers:x-requested-with,content-type');
 class Childrenstime extends Basics
 {
       /*
@@ -34,39 +40,20 @@ class Childrenstime extends Basics
      */
     public function index()
     {
-        $data = $this->getData();
+        $ctoken = $this->getReq();
+        if(!$ctoken){
+            $msg = 'token失效 请重新登录';
+            rData('300','失败',$msg);
+        }
+        $data = $this->getData($ctoken['id']);
         if($data){
-             //rData('1','成功',$data);
-             $this->assign('data',$data);
-             // dump($data);die;
-             return $this->fetch('./application/api/view/parent/parentsSmart.html');
+             rData('200','成功',$data);
+             //$this->assign('data',$data);
+            // return $this->fetch('./application/api/view/parent/parentsSmart.html');
         }else{
              $msg = '没有想要获取的资料';
-             rData('0','没有资料',$msg);
+             rData('200','没有资料',$msg);
         }
     }
-    public function getData()
-    {
-         //获取家长的ID  根据家长的ID 去聪明表中  展示该家长的孩子聪明数据
-         $flog = $_SESSION['flog'];
-         if(!$flog){
-              $this->redirect('去登录');
-         }
-         $id = $_SESSION['id'];
-         if(empty($id)){
-             return redirect('去登录  没有登录页');
-         }
-         $whereOne = "family_id = $id";
-         $student = Db::name('student')->where($whereOne)->field('id as student_id,name as student_name')->find();
-         if(empty($student)){
-             $msg = '无该学生数据';
-             rData('0','失败',$msg);
-         }
-         $studentid = $student['student_id'];
-         $where = "student_id = $studentid";
-         $data = Db::name('childrenstime')->where($where)->select();
-         $studentname = $student['student_name'];
-         $this->assign('studentname',$studentname);
-         return $data;
-    }
+   
 }

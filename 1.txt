@@ -1,0 +1,23 @@
+t :commit 2c483fe017c38b9ec5a2729d443fb3fdf9d07446
+Author: donghui1101 <donghui951101>
+Date:   Fri Apr 5 18:07:13 2019 +0800
+
+    session 问题已处理 只差渲染页面 和Pc 端添加bug
+
+commit ad9206ba2bd89a9491f6dd5e26c8b2d726f29f3c
+Author: donghui1101 <donghui951101>
+Date:   Thu Apr 4 18:50:28 2019 +0800
+
+    这次提交我觉得只差session问题没有处理
+
+commit 02a4b7b3f9e60500572a3e34b849d4b20fdd0fb2
+Author: donghui1101 <donghui951101>
+Date:   Wed Apr 3 18:26:32 2019 +0800
+
+    最新的家长端代码
+
+commit b26043116c0ba9ed9c2d38f8b9cd0bd83051049f
+Author: donghui1101 <donghui951101>
+Date:   Tue Apr 2 18:28:06 2019 +0800
+
+    前端家长模块
